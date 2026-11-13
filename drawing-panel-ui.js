@@ -5,3 +5,54 @@ function wireTabs(panel){const wire=()=>document.querySelectorAll('button,[role=
 const css=`#oms-v4-panel{right:16px!important;top:126px!important;width:336px!important;max-height:calc(100vh - 150px)!important;overflow:auto!important;border:1px solid #dce4df!important;border-radius:12px!important;box-shadow:0 12px 32px rgba(25,48,39,.16)!important}.oms-v4-section-head{display:flex;justify-content:space-between;padding:14px 14px 10px}.oms-v4-tools{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:7px!important;padding:2px 12px 12px!important}.oms-v4-tools button{height:66px!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px solid #d8e0dc!important;border-radius:9px!important;background:#fff!important;color:#4f625b!important}.oms-v4-tools button:hover{border-color:#aebfb7!important;background:#f8fbf9!important}.oms-v4-tools button.active{background:#e7f2ed!important;border-color:#78aa98!important;color:#174f40!important}.oms-v4-tools svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.oms-v4-tools span{font-size:10px;font-weight:600;line-height:1.15;text-align:center}#oms-v4-guidance{margin:0 12px 12px;padding:9px 10px;border-left:3px solid #2f745f;background:#f4f8f6;display:flex;flex-direction:column;gap:2px}#oms-v4-guidance b{font-size:11px;color:#244f42}#oms-v4-guidance span{font-size:10px;color:#6c7b75}#oms-v4-props{padding:12px!important;background:#fbfcfb}#oms-v4-layers{max-height:280px;overflow:auto}.oms-v4-actions{position:sticky;bottom:0;background:#fff;border-top:1px solid #e7ece9;padding:10px!important}body[data-oms-tool=pan] .maplibregl-canvas{cursor:grab!important}body[data-oms-tool=pan] .maplibregl-canvas:active{cursor:grabbing!important}#oms-tool-coach{position:fixed;left:226px;top:132px;z-index:130;min-width:270px;max-width:360px;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;padding:10px 11px;background:rgba(255,255,255,.97);border:1px solid #9fc4b6;border-radius:10px;box-shadow:0 8px 24px rgba(25,48,39,.15);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .18s,transform .18s}#oms-tool-coach.show{opacity:1;transform:translateY(0)}.oms-coach-icon{width:30px;height:30px;display:grid;place-items:center;color:#24614f;background:#edf6f2;border-radius:7px}.oms-coach-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}#oms-tool-coach>div:nth-child(2){display:flex;flex-direction:column;gap:1px}#oms-tool-coach b{font-size:11px;color:#213b32}#oms-tool-coach span{font-size:9px;color:#6e7d77}#oms-tool-coach kbd{font:600 9px Inter,Arial;padding:3px 6px;border-radius:5px;background:#edf0ee;color:#6b746f}#oms-v4-dialog{position:fixed;inset:0;z-index:10000;display:grid;place-items:center}.oms-dialog-backdrop{position:absolute;inset:0;background:rgba(18,28,24,.42);backdrop-filter:blur(1.5px)}.oms-dialog-card{position:relative;width:min(390px,calc(100vw - 32px));display:grid;grid-template-columns:42px 1fr;gap:10px;padding:22px;background:#fff;border:1px solid #dbe4df;border-radius:14px;box-shadow:0 24px 70px rgba(15,27,22,.28)}.oms-dialog-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:#fff0ec;color:#b84d35;font:bold 18px Inter}.oms-dialog-copy h3{margin:0 0 5px;font-size:15px;color:#26352f}.oms-dialog-copy p{margin:0;color:#6a7872;font-size:12px;line-height:1.5}.oms-dialog-close{position:absolute;right:12px;top:10px;border:0;background:transparent;font-size:20px;color:#718078}.oms-dialog-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.oms-dialog-actions button{min-width:84px;height:34px;border:1px solid #ccd8d2;border-radius:8px;background:#fff;color:#33463e;font-weight:600}.oms-dialog-actions button.danger{border-color:#b94d35;background:#b94d35;color:#fff}.oms-dialog-actions button:focus-visible{outline:3px solid rgba(47,116,95,.25);outline-offset:2px}input[type=color]{min-width:48px;cursor:pointer}@media(max-width:900px){#oms-v4-panel{right:8px!important;top:108px!important;width:min(336px,calc(100vw - 16px))!important}#oms-tool-coach{left:12px;top:112px;right:12px;min-width:0}}`;const style=document.createElement('style');style.textContent=css;document.head.append(style);if(!enhance())new MutationObserver(()=>enhance()).observe(document.body,{childList:true,subtree:true});
 })();
 ;(function(){const css=`.oms-color-field{position:relative}.oms-color-row{display:flex}.oms-color-trigger{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:5px 8px;border:1px solid #d3ded8;border-radius:7px;background:#fff;color:#45564f}.oms-color-trigger i{width:26px;height:18px;border-radius:4px;background:var(--swatch);border:1px solid rgba(0,0,0,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}.oms-color-trigger code{font:600 10px Inter,Arial;color:#65746e}.oms-color-popover{position:absolute;z-index:300;top:calc(100% + 5px);left:0;width:220px;padding:10px;background:#fff;border:1px solid #ccd9d3;border-radius:9px;box-shadow:0 14px 36px rgba(24,45,37,.2)}.oms-color-palette{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.oms-color-palette button{width:25px;height:25px;padding:0;border:1px solid rgba(0,0,0,.15);border-radius:5px;background:var(--c)}.oms-color-popover>label{margin-top:9px!important}.oms-color-popover .oms-hex{height:30px!important}.oms-color-actions{display:flex;justify-content:flex-end;margin-top:8px}.oms-color-actions button{height:29px;padding:0 12px;border:0;border-radius:6px;background:#2f745f;color:#fff;font-weight:600}.oms-opacity-field>span{display:flex;justify-content:space-between}.oms-opacity-field output{font-variant-numeric:tabular-nums;color:#2f745f}.oms-opacity-field input[type=range]{width:100%}#oms-v4-props .oms-grid{align-items:end}`;const st=document.createElement('style');st.textContent=css;document.head.append(st)})();
+
+/* Replace the duplicate compiled Draw workspace with the V4 editor itself. */
+;(function(){
+  let panel=null;
+  const tabs=()=>[...document.querySelectorAll('.panel-tabs button,[role=tab]')];
+  const activeLabel=()=>tabs().find(tab=>tab.classList.contains('active')||tab.getAttribute('aria-selected')==='true')?.textContent.trim();
+  const drawTab=()=>tabs().find(tab=>tab.textContent.trim()==='Draw');
+  const isDesktop=()=>window.innerWidth>=900;
+  function hostFor(scroll){
+    let host=scroll.querySelector(':scope > #oms-draw-editor-host');
+    if(!host){host=document.createElement('section');host.id='oms-draw-editor-host';host.setAttribute('aria-label','Drawing editor');scroll.append(host)}
+    return host;
+  }
+  function showLegacy(scroll){
+    scroll.querySelectorAll(':scope > .panel-content').forEach(content=>content.hidden=false);
+  }
+  function restore(){
+    const host=document.querySelector('#oms-draw-editor-host');
+    if(panel&&host?.contains(panel))document.body.append(panel);
+    if(host)host.hidden=true;
+    document.querySelectorAll('.panel-scroll').forEach(showLegacy);
+  }
+  function sync(clickedLabel){
+    panel||=document.querySelector('#oms-v4-panel');
+    const sidebar=document.querySelector('aside.sidebar'),scroll=sidebar?.querySelector('.panel-scroll'),tab=drawTab();
+    if(!panel||!sidebar||!scroll||!tab)return;
+    const selected=clickedLabel||activeLabel();
+    const drawIsActive=selected==='Draw';
+    if(!drawIsActive||!isDesktop()){
+      restore();
+      panel.hidden=!drawIsActive;
+      return;
+    }
+    const host=hostFor(scroll);
+    scroll.querySelectorAll(':scope > .panel-content').forEach(content=>content.hidden=true);
+    host.hidden=false;
+    if(panel.parentElement!==host)host.append(panel);
+    panel.hidden=false;
+  }
+  const schedule=label=>requestAnimationFrame(()=>sync(label));
+  document.addEventListener('click',event=>{
+    const tab=event.target.closest('.panel-tabs button,[role=tab]');
+    if(tab)schedule(tab.textContent.trim());
+  });
+  window.addEventListener('resize',()=>schedule());
+  new MutationObserver(()=>schedule()).observe(document.documentElement,{childList:true,subtree:true});
+  const style=document.createElement('style');
+  style.textContent=`#oms-draw-editor-host{display:block;min-height:100%}#oms-draw-editor-host[hidden]{display:none!important}#oms-draw-editor-host #oms-v4-panel{position:relative!important;inset:auto!important;width:100%!important;max-height:none!important;height:auto!important;overflow:visible!important;border:0!important;border-radius:0!important;box-shadow:none!important}#oms-draw-editor-host #oms-v4-layers{max-height:none!important}`;
+  document.head.append(style);
+  schedule();
+})();
